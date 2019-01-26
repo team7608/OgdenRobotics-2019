@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team7608.robot.commands.DriveCommand;
 import org.usfirst.frc.team7608.robot.subsystems.DriveSubsystem;
+import org.usfirst.frc.team7608.robot.subsystems.MechanismSubsystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -25,6 +26,7 @@ import org.usfirst.frc.team7608.robot.subsystems.DriveSubsystem;
  */
 public class Robot extends TimedRobot {
 	public static DriveSubsystem driveSubsystem = new DriveSubsystem();
+	public static MechanismSubsystem mechanism  = new MechanismSubsystem();
 	public static OI oi;
 
 
