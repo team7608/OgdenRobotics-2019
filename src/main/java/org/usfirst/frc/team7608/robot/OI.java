@@ -16,10 +16,12 @@ import edu.wpi.first.wpilibj.Joystick;
 public class OI {
 
 	public static Joystick mainJoystick;
+	public static Joystick secondJoystick;
 	
 	public OI() {
 	
 	mainJoystick = new Joystick(RobotMap.mainStick);
+	secondJoystick = new Joystick(RobotMap.secondStick);
 	//rightJoystick = new Joystick(RobotMap.rStick);
 	
 	//new JoystickButton(OI.leftJoystick, 0).whenPressed(new DriveCommand());
