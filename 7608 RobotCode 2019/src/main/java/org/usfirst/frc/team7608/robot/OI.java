@@ -20,7 +20,7 @@ import org.usfirst.frc.team7608.robot.commands.MoveHatchPannelDownCommand;
 public class OI {
 
 	public static Joystick mainJoystick;
-	public static XboxController secondJoystick;
+	public static Joystick secondJoystick;
 	public static JoystickButton a = new JoystickButton(secondJoystick, 1);
 	public static JoystickButton b = new JoystickButton(secondJoystick, 2);
 	public static JoystickButton x = new JoystickButton(secondJoystick, 3);
@@ -32,22 +32,22 @@ public class OI {
 
 	public OI() {
 	
-		a.whenPressed(new MoveHatchPannelUpCommand());
-		b.whenPressed(new MoveHatchPannelDownCommand());
+		// a.whenPressed(new MoveHatchPannelUpCommand());
+		// b.whenPressed(new MoveHatchPannelDownCommand());
 
 mainJoystick = new Joystick(RobotMap.mainStick);
-	secondJoystick = new XboxController(RobotMap.secondStick){
+	secondJoystick = new Joystick(RobotMap.secondStick){
 
 
-		@Override
-		public double getY(Hand hand) {
-			return 0;
-		}
+		// @Override
+		// public double getY(Hand hand) {
+		// 	return 0;
+		// }
 	
-		@Override
-		public double getX(Hand hand) {
-			return 0;
-		}
+		// @Override
+		// public double getX(Hand hand) {
+		// 	return 0;
+		// }
 	
 		@Override
 		public void setRumble(RumbleType type, double value) {
@@ -69,10 +69,10 @@ mainJoystick = new Joystick(RobotMap.mainStick);
 			return null;
 		}
 	
-		@Override
-		public boolean getStickButton(Hand hand) {
-			return false;
-		}
+		// @Override
+		// public boolean getStickButton(Hand hand) {
+		// 	return false;
+		// }
 	
 		@Override
 		public boolean getRawButton(int button) {
@@ -99,10 +99,10 @@ mainJoystick = new Joystick(RobotMap.mainStick);
 			return null;
 		}
 	
-		@Override
-		public boolean getBumper(Hand hand) {
-			return false;
-		}
+		// @Override
+		// public boolean getBumper(Hand hand) {
+		// 	return false;
+		// }
 	};
 	
 	//rightJoystick = new Joystick(RobotMap.rStick);

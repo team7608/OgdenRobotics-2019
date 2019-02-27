@@ -107,9 +107,8 @@ public class Robot extends TimedRobot {
 		if (autonomousCommand != null) {
 			autonomousCommand.cancel();
 		}
-		if (driveCommand != null) {
-			driveCommand.start();
-		}
+
+	
 	}
 
 	/**
