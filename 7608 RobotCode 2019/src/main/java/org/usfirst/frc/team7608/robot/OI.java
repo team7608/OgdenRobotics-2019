@@ -8,7 +8,6 @@
 package org.usfirst.frc.team7608.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.usfirst.frc.team7608.robot.commands.MoveHatchPannelUpCommand;
 import org.usfirst.frc.team7608.robot.commands.MoveHatchPannelDownCommand;
@@ -32,8 +31,8 @@ public class OI {
 
 	public OI() {
 	
-		// a.whenPressed(new MoveHatchPannelUpCommand());
-		// b.whenPressed(new MoveHatchPannelDownCommand());
+		a.whenPressed(new MoveHatchPannelUpCommand());
+		 b.whenPressed(new MoveHatchPannelDownCommand());
 
 mainJoystick = new Joystick(RobotMap.mainStick);
 	secondJoystick = new Joystick(RobotMap.secondStick){

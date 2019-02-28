@@ -39,12 +39,14 @@ public class Robot extends TimedRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
+		hatchSubsystem = new HatchPannelSubsystem();
 		driveSubsystem.driveRobot.setSafetyEnabled(false);
 		
 	//	chooser.addDefault("Default Auto", new DriveCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		//SmartDashboard.putData("Auto mode", chooser);
 	}
+
 
 	/**
 	 * This function is called once each time the robot enters Disabled mode.
