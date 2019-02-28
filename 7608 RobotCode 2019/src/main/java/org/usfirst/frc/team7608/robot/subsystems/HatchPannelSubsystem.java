@@ -18,18 +18,16 @@ public class HatchPannelSubsystem extends Subsystem {
   public WPI_VictorSPX hatchPannelMotor = new WPI_VictorSPX(RobotMap.hatchPannelMotor);
  // private double up = (OI.secondJoystick.getRawAxis(-4));
 
-public void HatchPannelLiftUp () {
-  hatchPannelMotor.set(0.5);
-  //(OI.secondJoystick.getRawsAxis(-4) , OI.secondJoystick.getRawAxis(4));
-}
+  public void HatchPannelLiftUp () {
+    hatchPannelMotor.set(ControlMode.PercentOutput, 0.5);
+    //(OI.secondJoystick.getRawsAxis(-4) , OI.secondJoystick.getRawAxis(4));
+  }
 
 
-public void HatchPannelLiftDown () {
-  hatchPannelMotor.set(ControlMode.PercentOutput, (-0.5));
+  public void HatchPannelLiftDown () {
+    hatchPannelMotor.set(ControlMode.PercentOutput, -0.5);
 
-}
-
-
+  }
 
   @Override
   public void initDefaultCommand() {

@@ -24,7 +24,7 @@ import org.usfirst.frc.team7608.robot.subsystems.HatchPannelSubsystem;
  */
 public class Robot extends TimedRobot {
 	public static DriveSubsystem driveSubsystem = new DriveSubsystem();
-	public static HatchPannelSubsystem hatchSubsystem = new HatchPannelSubsystem();
+	public static HatchPannelSubsystem hatchSubsystem;
 	public static OI oi;
 
 
@@ -36,12 +36,13 @@ public class Robot extends TimedRobot {
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
 	 */
+	
 	@Override
 	public void robotInit() {
-		oi = new OI();
+		
 		hatchSubsystem = new HatchPannelSubsystem();
 		driveSubsystem.driveRobot.setSafetyEnabled(false);
-		
+		oi = new OI();
 	//	chooser.addDefault("Default Auto", new DriveCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		//SmartDashboard.putData("Auto mode", chooser);
