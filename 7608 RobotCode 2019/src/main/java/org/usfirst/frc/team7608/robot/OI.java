@@ -25,6 +25,11 @@ public class OI {
 	public static JoystickButton b;
 	public static JoystickButton x;
 	public static JoystickButton y; 
+	//public static JoystickButton RB_Bumper;
+	//public static JoystickButton LB_Bumper;
+	//public static Joystick RT_Trigger;
+	//public static Joystick LT_Trigger;
+
 
 	public OI() {
 		mainJoystick = new Joystick(RobotMap.mainStick);
@@ -34,11 +39,18 @@ public class OI {
 		b = new JoystickButton(secondJoystick, 2);
 		x = new JoystickButton(secondJoystick, 3);
 		y = new JoystickButton(secondJoystick, 4);
+		//RB_Bumper = new JoystickButton(secondJoystick, ?);
+		//LB_Bumper = new JoystickButton(secondJoystick, ?);
+	
+
+
+
+
 
 		a.whileHeld(new MoveHatchPannelUpCommand());
 		b.whileHeld(new MoveHatchPannelDownCommand());
 		a.whenReleased(new MoveHatchPannelStopCommand());
 		b.whenReleased(new MoveHatchPannelStopCommand());
-
+		
 	}
 }

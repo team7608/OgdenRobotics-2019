@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
 import org.usfirst.frc.team7608.robot.commands.DriveCommand;
+import org.usfirst.frc.team7608.robot.subsystems.CargoSubsystem;
 import org.usfirst.frc.team7608.robot.subsystems.DriveSubsystem;
 import org.usfirst.frc.team7608.robot.subsystems.HatchPannelSubsystem;
 
@@ -25,6 +26,7 @@ import org.usfirst.frc.team7608.robot.subsystems.HatchPannelSubsystem;
 public class Robot extends TimedRobot {
 	public static DriveSubsystem driveSubsystem;
 	public static HatchPannelSubsystem hatchSubsystem;
+	public static CargoSubsystem cargoSubsystem;
 	public static OI oi;
 
 
@@ -41,7 +43,9 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		hatchSubsystem = new HatchPannelSubsystem();
 		driveSubsystem = new DriveSubsystem();
+		cargoSubsystem = new CargoSubsystem();
 		oi = new OI();
+		
 		driveSubsystem.driveRobot.setSafetyEnabled(false);
 	
 	//	chooser.addDefault("Default Auto", new DriveCommand());

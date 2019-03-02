@@ -27,7 +27,7 @@ public class RobotMap {
 	public static int rightRearMotorPort = 4;
 
 	public static int hatchPannelMotor = 5;
-	public static int cargoMechanismIntake = 6;
+	public static int cargoMechanismIntakeMotor = 6;
 	
 
 	public static int mainStick = 0;

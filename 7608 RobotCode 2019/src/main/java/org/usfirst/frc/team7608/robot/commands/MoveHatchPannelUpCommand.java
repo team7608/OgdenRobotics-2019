@@ -27,11 +27,10 @@ public class MoveHatchPannelUpCommand extends Command {
     //System.out.println("Execute");
    // if (OI.secondJoystick.getRawAxis(1) > (0.1)) 
  
-      Robot.hatchSubsystem.HatchPannelLiftUp();
+    Robot.hatchSubsystem.HatchPannelLiftUp();
    
 
   }
-  
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
