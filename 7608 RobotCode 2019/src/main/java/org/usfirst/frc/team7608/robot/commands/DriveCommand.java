@@ -10,7 +10,6 @@ public class DriveCommand extends Command {
 
 	public DriveCommand() {
 		requires (Robot.driveSubsystem);
-
 	}
 	
 	 @Override

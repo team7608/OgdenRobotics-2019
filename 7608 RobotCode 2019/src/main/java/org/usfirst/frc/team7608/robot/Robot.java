@@ -23,14 +23,14 @@ import org.usfirst.frc.team7608.robot.subsystems.HatchPannelSubsystem;
  * project.
  */
 public class Robot extends TimedRobot {
-	public static DriveSubsystem driveSubsystem = new DriveSubsystem();
+	public static DriveSubsystem driveSubsystem;
 	public static HatchPannelSubsystem hatchSubsystem;
 	public static OI oi;
 
 
 	Command autonomousCommand;
 //	SendableChooser<Command> chooser = new SendableChooser<>();
-	Command driveCommand = new DriveCommand();
+	Command driveCommand;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -39,10 +39,11 @@ public class Robot extends TimedRobot {
 	
 	@Override
 	public void robotInit() {
-		
 		hatchSubsystem = new HatchPannelSubsystem();
-		driveSubsystem.driveRobot.setSafetyEnabled(false);
+		driveSubsystem = new DriveSubsystem();
 		oi = new OI();
+		driveSubsystem.driveRobot.setSafetyEnabled(false);
+	
 	//	chooser.addDefault("Default Auto", new DriveCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		//SmartDashboard.putData("Auto mode", chooser);
@@ -56,7 +57,8 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void disabledInit() {
-		driveCommand.cancel();
+		if (driveCommand != null)
+			driveCommand.cancel();
 	}
 
 	@Override
@@ -111,7 +113,10 @@ public class Robot extends TimedRobot {
 			autonomousCommand.cancel();
 		}
 
-	
+		driveCommand = new DriveCommand();
+		if (driveCommand != null) {
+			driveCommand.start();
+		}
 	}
 
 	/**

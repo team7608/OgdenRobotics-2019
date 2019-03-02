@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class MoveHatchPannelUpCommand extends Command {
   
   public MoveHatchPannelUpCommand() {
-  requires(Robot.hatchSubsystem);
+    requires(Robot.hatchSubsystem);
   }
 
   // Called just before this Command runs the first time

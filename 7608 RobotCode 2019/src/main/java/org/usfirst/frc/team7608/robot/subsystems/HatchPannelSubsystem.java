@@ -19,14 +19,18 @@ public class HatchPannelSubsystem extends Subsystem {
  // private double up = (OI.secondJoystick.getRawAxis(-4));
 
   public void HatchPannelLiftUp () {
-    hatchPannelMotor.set(ControlMode.PercentOutput, 0.5);
+    hatchPannelMotor.set(ControlMode.PercentOutput, 1);
     //(OI.secondJoystick.getRawsAxis(-4) , OI.secondJoystick.getRawAxis(4));
   }
 
 
   public void HatchPannelLiftDown () {
-    hatchPannelMotor.set(ControlMode.PercentOutput, -0.5);
+    hatchPannelMotor.set(ControlMode.PercentOutput, -1);
 
+  }
+
+  public void HatchPannelLiftStop (){
+    hatchPannelMotor.set(ControlMode.PercentOutput, 0);
   }
 
   @Override

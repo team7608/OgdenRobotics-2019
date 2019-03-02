@@ -8,12 +8,14 @@
 package org.usfirst.frc.team7608.robot.commands;
 
 import org.usfirst.frc.team7608.robot.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
 
-public class MoveHatchPannelDownCommand extends Command {
-  
-  public MoveHatchPannelDownCommand() {
-  requires(Robot.hatchSubsystem);
+public class MoveHatchPannelStopCommand extends Command {
+  public MoveHatchPannelStopCommand() {
+    requires (Robot.hatchSubsystem);
+    // Use requires() here to declare subsystem dependencies
+    // eg. requires(chassis);
   }
 
   // Called just before this Command runs the first time
@@ -24,14 +26,9 @@ public class MoveHatchPannelDownCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    System.out.println("Execute Down");
-   // if (OI.secondJoystick.getRawAxis(1) > (0.1)) 
- 
-  //else if (OI.secondJoystick.getRawAxis(1) < (-0.1)) {
-    Robot.hatchSubsystem.HatchPannelLiftDown();
+  Robot.hatchSubsystem.HatchPannelLiftStop();
     
   }
-  
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
