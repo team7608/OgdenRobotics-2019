@@ -21,7 +21,7 @@ public class CargoSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   public void CargoIntakeStart() {
-    CargoIntakeMotor.set(ControlMode.PercentOutput, 1);
+    CargoIntakeMotor.set(ControlMode.PercentOutput, -1);
   }
 
   public void CargoStop(){

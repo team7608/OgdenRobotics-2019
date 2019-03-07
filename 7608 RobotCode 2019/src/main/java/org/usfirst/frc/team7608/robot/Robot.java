@@ -15,6 +15,9 @@ import org.usfirst.frc.team7608.robot.commands.DriveCommand;
 import org.usfirst.frc.team7608.robot.subsystems.CargoSubsystem;
 import org.usfirst.frc.team7608.robot.subsystems.DriveSubsystem;
 import org.usfirst.frc.team7608.robot.subsystems.HatchPannelSubsystem;
+import edu.wpi.first.cameraserver.CameraServer;
+import org.usfirst.frc.team7608.robot.commands.CargoIntakeCommand;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -27,6 +30,8 @@ public class Robot extends TimedRobot {
 	public static DriveSubsystem driveSubsystem;
 	public static HatchPannelSubsystem hatchSubsystem;
 	public static CargoSubsystem cargoSubsystem;
+	//public static CargoIntakeCommand cargoIntake;
+
 	public static OI oi;
 
 
@@ -43,10 +48,16 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		hatchSubsystem = new HatchPannelSubsystem();
 		driveSubsystem = new DriveSubsystem();
+		//cargoIntake = new CargoIntakeCommand();
 		cargoSubsystem = new CargoSubsystem();
+		CameraServer.getInstance().startAutomaticCapture();
 		oi = new OI();
 		
 		driveSubsystem.driveRobot.setSafetyEnabled(false);
+
+	
+		
+        
 	
 	//	chooser.addDefault("Default Auto", new DriveCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());

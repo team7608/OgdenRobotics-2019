@@ -8,8 +8,10 @@
 package org.usfirst.frc.team7608.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Joystick.AxisType;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.usfirst.frc.team7608.robot.commands.MoveHatchPannelUpCommand;
+import org.usfirst.frc.team7608.robot.commands.CargoIntakeCommand;
 import org.usfirst.frc.team7608.robot.commands.MoveHatchPannelDownCommand;
 import org.usfirst.frc.team7608.robot.commands.MoveHatchPannelStopCommand;
 
@@ -25,6 +27,7 @@ public class OI {
 	public static JoystickButton b;
 	public static JoystickButton x;
 	public static JoystickButton y; 
+	//public static Joystick.AxisType RT;
 	//public static JoystickButton RB_Bumper;
 	//public static JoystickButton LB_Bumper;
 	//public static Joystick RT_Trigger;
@@ -45,12 +48,15 @@ public class OI {
 
 
 
-
-
 		a.whileHeld(new MoveHatchPannelUpCommand());
 		b.whileHeld(new MoveHatchPannelDownCommand());
 		a.whenReleased(new MoveHatchPannelStopCommand());
 		b.whenReleased(new MoveHatchPannelStopCommand());
+		x.whileHeld(new CargoIntakeCommand());
+
+		//(OI.secondJoystick.getRawAxis(3) >=  0.7)
+		//driveRobot.arcadeDrive(-OI.mainJoystick.getY(), OI.mainJoystick.getZ());
+
 		
 	}
 }
