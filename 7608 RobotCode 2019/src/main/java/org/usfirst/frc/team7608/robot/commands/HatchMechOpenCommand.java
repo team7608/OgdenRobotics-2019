@@ -6,16 +6,17 @@
 /*----------------------------------------------------------------------------*/
 
 package org.usfirst.frc.team7608.robot.commands;
+
+import org.usfirst.frc.team7608.robot.subsystems.HatchPannelSubsystem;
 import org.usfirst.frc.team7608.robot.Robot;
+import org.usfirst.frc.team7608.robot.commands.HatchMechOpenCommand;
+
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.DigitalInput;
 
-public class MoveHatchPannelDownCommand extends Command {
-  
-  public MoveHatchPannelDownCommand() {
-
-  requires(Robot.hatchSubsystem);
-  DigitalInput limitSwitch;
+public class HatchMechOpenCommand extends Command {
+  public HatchMechOpenCommand() {
+    // Use requires() here to declare subsystem dependencies
+    // eg. requires(chassis);
   }
 
   // Called just before this Command runs the first time
@@ -26,17 +27,8 @@ public class MoveHatchPannelDownCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    //System.out.println("Execute");
-   // if (OI.secondJoystick.getRawAxis(1) > (0.1)) 
-
-
-    
-  //else if (OI.secondJoystick.getRawAxis(1) < (-0.1)) {
-  
-    Robot.hatchSubsystem.HatchPannelLiftDown();
-    
+    Robot.hatchSubsystem.HatchMechOpen();
   }
-  
 
   // Make this return true when this Command no longer needs to run execute()
   @Override

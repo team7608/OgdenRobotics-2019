@@ -11,26 +11,55 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import org.usfirst.frc.team7608.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import org.usfirst.frc.team7608.robot.Robot;
+import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Servo;
+
 
 /**
  */
 public class HatchPannelSubsystem extends Subsystem {
   public WPI_VictorSPX hatchPannelMotor = new WPI_VictorSPX(RobotMap.hatchPannelMotor);
- // private double up = (OI.secondJoystick.getRawAxis(-4));
+  //public DigitalInput hatchlimitswitch = new DigitalInput(RobotMap.hatchlimitswitch);
+  public Servo servoA = new Servo(RobotMap.servoA);
+  public Servo servoB = new Servo(RobotMap.servoB);
+  public Servo servoC = new Servo(RobotMap.servoC);
 
-  public void HatchPannelLiftUp () {
-    hatchPannelMotor.set(ControlMode.PercentOutput, 1);
-    //(OI.secondJoystick.getRawsAxis(-4) , OI.secondJoystick.getRawAxis(4));
+
+
+  public void HatchPannelLiftUp() {
+    hatchPannelMotor.set(ControlMode.PercentOutput, 0.1);
   }
-
-
   public void HatchPannelLiftDown () {
-    hatchPannelMotor.set(ControlMode.PercentOutput, -1);
+    hatchPannelMotor.set(ControlMode.PercentOutput, -0.09);
 
   }
-
   public void HatchPannelLiftStop (){
     hatchPannelMotor.set(ControlMode.PercentOutput, 0);
+  }
+
+
+
+
+  public void HatchMechOpen(){
+    servoA.setPosition(0.6);
+    servoB.setPosition(0.6);
+    servoC.setPosition(0.6);
+  }
+
+  public void HatchMechClosed(){
+    servoA.setPosition(0);
+    servoB.setPosition(0);
+    servoC.setPosition(0);
+
+
+  }
+  public void HatchMechStop(){
+    servoA.setPosition(0);
+    servoB.setPosition(0);
+    servoC.setPosition(0);
+
+    
   }
 
   @Override

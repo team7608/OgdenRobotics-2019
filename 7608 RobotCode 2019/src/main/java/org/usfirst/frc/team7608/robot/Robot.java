@@ -12,11 +12,26 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
 import org.usfirst.frc.team7608.robot.commands.DriveCommand;
+import org.usfirst.frc.team7608.robot.commands.MoveHatchPannelDownCommand;
+import org.usfirst.frc.team7608.robot.commands.MoveHatchPannelUpCommand;
+import org.usfirst.frc.team7608.robot.commands.MoveHatchPannelStopCommand;
+import org.usfirst.frc.team7608.robot.commands.HatchMechOpenCommand;
+import org.usfirst.frc.team7608.robot.commands.HatchMechCloseCommand;
+import org.usfirst.frc.team7608.robot.commands.HatchMechStopCommand;
+
+
 import org.usfirst.frc.team7608.robot.subsystems.CargoSubsystem;
 import org.usfirst.frc.team7608.robot.subsystems.DriveSubsystem;
 import org.usfirst.frc.team7608.robot.subsystems.HatchPannelSubsystem;
+
+import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.CameraServer;
 import org.usfirst.frc.team7608.robot.commands.CargoIntakeCommand;
+import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.cscore.VideoSink;
+
+
+
 
 
 /**
@@ -30,7 +45,9 @@ public class Robot extends TimedRobot {
 	public static DriveSubsystem driveSubsystem;
 	public static HatchPannelSubsystem hatchSubsystem;
 	public static CargoSubsystem cargoSubsystem;
-	//public static CargoIntakeCommand cargoIntake;
+
+	
+	
 
 	public static OI oi;
 
@@ -38,6 +55,17 @@ public class Robot extends TimedRobot {
 	Command autonomousCommand;
 //	SendableChooser<Command> chooser = new SendableChooser<>();
 	Command driveCommand;
+	Command moveHatchPannelUpCommand;
+	Command moveHatchPannelDownCommand;
+	Command moveHatchPannelStopCommand;
+	Command CargoIntakeCommand;
+	Command HatchMechOpenCommand;
+	Command HatchMechCloseCommand;
+
+	public static UsbCamera camera1;
+	public static UsbCamera camera2;
+	public static VideoSink server;
+
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -48,10 +76,14 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		hatchSubsystem = new HatchPannelSubsystem();
 		driveSubsystem = new DriveSubsystem();
-		//cargoIntake = new CargoIntakeCommand();
 		cargoSubsystem = new CargoSubsystem();
-		CameraServer.getInstance().startAutomaticCapture();
+		camera1 = CameraServer.getInstance().startAutomaticCapture(0);
+		camera2 = CameraServer.getInstance().startAutomaticCapture(1);
+		//server = CameraServer.getInstance().getServer();
+	
 		oi = new OI();
+
+	
 		
 		driveSubsystem.driveRobot.setSafetyEnabled(false);
 
@@ -103,10 +135,22 @@ public class Robot extends TimedRobot {
 		 * = new MyAutoCommand(); break; case "Default Auto": default:
 		 * autonomousCommand = new ExampleCommand(); break; }
 		 */
-
+		driveCommand = new DriveCommand();
+		moveHatchPannelUpCommand = new MoveHatchPannelUpCommand();
+		moveHatchPannelDownCommand = new MoveHatchPannelDownCommand();
+		moveHatchPannelStopCommand = new  MoveHatchPannelStopCommand();
 		// schedule the autonomous command (example)
-		if (autonomousCommand != null) {
-			autonomousCommand.start();
+		if (driveCommand != null) {
+			driveCommand.start();
+		}
+		if (moveHatchPannelUpCommand != null) {
+			moveHatchPannelUpCommand.start();
+		}
+		if (moveHatchPannelDownCommand != null) {
+			moveHatchPannelDownCommand.start();
+		}
+		if (moveHatchPannelStopCommand != null) {
+			moveHatchPannelStopCommand.start();
 		}
 	}
 
@@ -115,6 +159,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousPeriodic() {
+		teleopInit();
 		Scheduler.getInstance().run();
 	}
 

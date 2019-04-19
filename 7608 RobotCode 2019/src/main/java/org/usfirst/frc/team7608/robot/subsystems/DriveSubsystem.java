@@ -10,11 +10,9 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 public class DriveSubsystem extends Subsystem{
 	
 	public WPI_VictorSPX leftFrontMotor = new WPI_VictorSPX(RobotMap.leftFrontMotorPort);
-	//public WPI_VictorSPX leftMidMotor = new WPI_VictorSPX(RobotMap.leftMidMotorPort);
 	public WPI_VictorSPX leftRearMotor = new WPI_VictorSPX(RobotMap.leftRearMotorPort);
 	
 	public WPI_VictorSPX rightFrontMotor = new WPI_VictorSPX(RobotMap.rightFrontMotorPort);
-	//public WPI_VictorSPX rightMidMotor = new WPI_VictorSPX(RobotMap.rightMidMotorPort);
 	public WPI_VictorSPX rightRearMotor = new WPI_VictorSPX(RobotMap.rightRearMotorPort);
 	
 	
@@ -26,12 +24,12 @@ public class DriveSubsystem extends Subsystem{
 	
 	
 	public void arcadeDrive() {
-		//driveRobot.tankDrive(OI.getRawAxis., OI.getRawAxis(5));
+		
 		driveRobot.arcadeDrive(-OI.mainJoystick.getY(), OI.mainJoystick.getZ());
 	
 	}
 
-	
+	//driveRobot.tankDrive(OI.getRawAxis., OI.getRawAxis(5));
 	@Override
 	protected void initDefaultCommand() {		
 	}

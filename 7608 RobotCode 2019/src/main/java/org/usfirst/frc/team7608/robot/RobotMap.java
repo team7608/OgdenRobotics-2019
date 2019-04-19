@@ -29,6 +29,13 @@ public class RobotMap {
 	public static int hatchPannelMotor = 5;
 	public static int cargoMechanismIntakeMotor = 6;
 	
+	public static int servo1 = 0;
+	//public static int servo2 = 1;
+	//public static int hatchlimitswitch = ;
+	public static int servoA = 2;
+	public static int servoB = 3;
+	public static int servoC = 4;
+
 
 	public static int mainStick = 0;
 	public static int secondStick = 1;

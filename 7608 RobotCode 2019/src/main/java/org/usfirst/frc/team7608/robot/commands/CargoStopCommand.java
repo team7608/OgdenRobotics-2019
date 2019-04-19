@@ -13,10 +13,10 @@ import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team7608.robot.Robot;
 
 
-public class CargoIntakeCommand extends Command {
+public class CargoStopCommand extends Command {
 
 
-  public CargoIntakeCommand() {
+  public CargoStopCommand() {
     requires(Robot.cargoSubsystem);
     }
   
@@ -28,9 +28,9 @@ public class CargoIntakeCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-     Robot.cargoSubsystem.CargoIntakeStart();
-   
-    // if  (OI.secondJoystick.getRawAxis(3) >=  0.7)
+      Robot.cargoSubsystem.CargoStop();
+
+    // if  (OI.secondJoystick.getRawAxis(4) >=  0.7)
     //   Robot.cargoSubsystem.CargoIntakeStart();
     // else 
     //   Robot.cargoSubsystem.CargoStop();
